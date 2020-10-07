@@ -4,9 +4,9 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const path = require("path");
 require('dotenv/config')
-
-
 const app = express();
+
+app.use(bodyParser.json());
 
 //database connection
 
@@ -16,9 +16,11 @@ mongoose.connect(
     () => {console.log('connected to DB');}
  );
 
+
  const playersRoute = require('./routes/players');
 
  app.use('/players', playersRoute);
+
 
 
 

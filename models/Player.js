@@ -5,10 +5,6 @@ const PlayerSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    birthDate: {
-        type: Date,
-        required: true
-    },
     description: {
         type: String,
         required: true
