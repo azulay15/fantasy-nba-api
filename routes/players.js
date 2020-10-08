@@ -50,7 +50,10 @@ router.delete('/:playerId', async (req, res) => {
 
 router.patch('/:playerId', async (req, res) => {
     try{
-       const updatedPlayer = await Player.remove({_id: req.params.playerId});
+       const updatedPlayer = await Player.updateOne(
+           {_id: req.params.playerId},
+           { $set: { name: req.body.name }}
+           );
        res.json(updatedPlayer)
     }catch(err){
         res.json({message: err});
