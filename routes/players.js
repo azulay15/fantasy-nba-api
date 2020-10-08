@@ -21,6 +21,8 @@ router.get('/:playerId', async (req, res) => {
     
 });
 
+
+
 router.post('/', async (req, res) => {
     const player = new Player({
         name: req.body.name,
@@ -34,6 +36,26 @@ router.post('/', async (req, res) => {
         res.json({message: err});
     }
 
+});
+
+router.delete('/:playerId', async (req, res) => {
+    try{
+       const removedPlayer = await Player.remove({_id: req.params.playerId});
+       res.json(removedPlayer)
+    }catch(err){
+        res.json({message: err});
+    }
+    
+});
+
+router.patch('/:playerId', async (req, res) => {
+    try{
+       const updatedPlayer = await Player.remove({_id: req.params.playerId});
+       res.json(updatedPlayer)
+    }catch(err){
+        res.json({message: err});
+    }
+    
 });
 
 
